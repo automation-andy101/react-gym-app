@@ -3,7 +3,7 @@ import React from 'react';
 import BodyPart from './BodyPart';
 
 
-const HorizontalScrollBar = ({ data }) => {
+const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
 
     return (
         <div>

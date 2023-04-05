@@ -5,12 +5,11 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollBar from './HorizontalScrollBar';
 
 
-const SearchExercises = () => {
+const SearchExercises = ( { setExcercises, bodyPart, setBodyPart } ) => {
     const exercisesUrl = 'https://exercisedb.p.rapidapi.com/exercises/exercises/';
-    const bodyPartsListUrl = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList/xxxxx';
+    const bodyPartsListUrl = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList/';
 
     const [search, setSearch] = useState('');
-    const [exercises, setExcercises] = useState([]);
     const [bodyParts, setBodyParts] = useState([]);
 
     useEffect(() => {
@@ -21,6 +20,7 @@ const SearchExercises = () => {
                 'all',
                 ...bodyPartsData
             ]);
+            console.log(bodyPartsData);
         }
         fetchExercisesData();
     }, []);
@@ -107,7 +107,7 @@ const SearchExercises = () => {
                         p: '20px',
                     }}
                 >
-                    <HorizontalScrollBar data={bodyParts} setBodyParts={setBodyParts} />
+                    <HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
                 </Box>
             </Stack>
         </div>
