@@ -5,8 +5,8 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollBar from './HorizontalScrollBar';
 
 
-const SearchExercises = ( { setExcercises, bodyPart, setBodyPart } ) => {
-    const exercisesUrl = 'https://exercisedb.p.rapidapi.com/exercises/exercises/';
+const SearchExercises = ( { setExercises, bodyPart, setBodyPart } ) => {
+    const exercisesUrl = 'https://exercisedb.p.rapidapi.com/exercises/';
     const bodyPartsListUrl = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList/';
 
     const [search, setSearch] = useState('');
@@ -20,7 +20,6 @@ const SearchExercises = ( { setExcercises, bodyPart, setBodyPart } ) => {
                 'all',
                 ...bodyPartsData
             ]);
-            console.log(bodyPartsData);
         }
         fetchExercisesData();
     }, []);
@@ -28,6 +27,8 @@ const SearchExercises = ( { setExcercises, bodyPart, setBodyPart } ) => {
     const handleSearch = async () => {
         if (search) {
             const exercisesData = await fetchData(exercisesUrl, exerciseOptions);
+            console.log(exercisesData);
+
             const searchedExercises = exercisesData.filter(
                 (exercise) => exercise.name.toLowerCase().includes(search) ||
                     exercise.target.toLowerCase().includes(search) ||
@@ -36,8 +37,7 @@ const SearchExercises = ( { setExcercises, bodyPart, setBodyPart } ) => {
             );
 
             setSearch('');
-            console.log(searchedExercises);
-            setExcercises(searchedExercises);
+            setExercises(searchedExercises);
         }
     }
 
