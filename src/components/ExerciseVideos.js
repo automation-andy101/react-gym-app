@@ -3,7 +3,6 @@ import { Stack, Box, Typography } from '@mui/material';
 
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-  const {title} = exerciseVideos;
 
   if(!exerciseVideos.length) return '...Loading'
 
@@ -23,7 +22,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
               className='exercise-video'
               href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
               target='_blank'
-              rel='nonreferrer'
+              rel='noreferrer'
             >
               <img src={item.video.thumbnails[0].url} alt={item.video.title} />
               <Box>

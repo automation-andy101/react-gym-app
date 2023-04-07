@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
 import Logo from '../assets/images/Logo.png';
-import { BorderBottom } from '@mui/icons-material';
 
 
 const Navbar = () => {
