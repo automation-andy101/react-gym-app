@@ -31,7 +31,7 @@ const Navbar = () => {
         fontSize='24px'
         alignItems='flex-end'
       >
-        <Link to='/home'
+        <Link to='/'
           style={{
             textDecoration: 'none',
             color: '#3A1212',
